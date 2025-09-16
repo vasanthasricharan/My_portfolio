@@ -8,55 +8,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-
-<script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
-    import { getFirestore, collection, addDoc, serverTimestamp }
-        from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
-
-    // Firebase config
-    const firebaseConfig = {
-        apiKey: "AIzaSyBv97YGYE4-3M3ELERZrykIhtGxKwVbnHY",
-        authDomain: "portfoliomessages65.firebaseapp.com",
-        projectId: "portfoliomessages65",
-        storageBucket: "portfoliomessages65.appspot.com",
-        messagingSenderId: "728009265061",
-        appId: "1:728009265061:web:747514012a23bd28b2e24c",
-        measurementId: "G-STC806ZSRK"
-    };
-
-
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-    const messagesRef = collection(db, "messages");
-
-    const form = document.getElementById("contactForm");
-
-    form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-
-        const name = document.getElementById("name").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const comment = document.getElementById("comment").value.trim();
-
-        if (name && email && comment) {
-            try {
-                await addDoc(messagesRef, {
-                    name,
-                    email,
-                    comment,
-                    createdAt: serverTimestamp()
-                });
-                alert("✅ Message saved to Firestore!");
-            } catch (err) {
-                console.error("❌ Firestore error:", err);
-                alert("❌ Firestore error: " + err.message);
-            }
-        }
-    });
-</script>
-
-
 <body>
     <div class="welcome-content" id="welcome-content">
         <div class="animated-content">
@@ -349,5 +300,6 @@
 
         <script type="module" src="script.js"></script>
 </body>
+
 
 </html>
