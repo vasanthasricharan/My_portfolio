@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+    import { getFirestore, collection, addDoc, serverTimestamp }
+        from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
+    // Firebase config
+    const firebaseConfig = {
+        apiKey: "AIzaSyBv97YGYE4-3M3ELERZrykIhtGxKwVbnHY",
+        authDomain: "portfoliomessages65.firebaseapp.com",
+        projectId: "portfoliomessages65",
+        storageBucket: "portfoliomessages65.appspot.com",
+        messagingSenderId: "728009265061",
+        appId: "1:728009265061:web:747514012a23bd28b2e24c",
+        measurementId: "G-STC806ZSRK"
+    };
+
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const messagesRef = collection(db, "messages");
+
+    const form = document.getElementById("contactForm");
+
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const comment = document.getElementById("comment").value.trim();
+
+        if (name && email && comment) {
+            try {
+                await addDoc(messagesRef, {
+                    name,
+                    email,
+                    comment,
+                    createdAt: serverTimestamp()
+                });
+                alert("✅ Message saved to Firestore!");
+            } catch (err) {
+                console.error("❌ Firestore error:", err);
+                alert("❌ Firestore error: " + err.message);
+            }
+        }
+    });
+</script>
+
+
+<body>
+    <div class="welcome-content" id="welcome-content">
+        <div class="animated-content">
+            Welcome to my <br> Portfolio Website
+        </div>
+    </div>
+    <div id="portfolio" style="display: none;">
+        <div class="navbar" id="navbar">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#showcase" class="nav-link">Showcase</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+
+        <section id="home">
+        </section>
+
+        <section id="about">
+        </section>
+
+        <section id="showcase">
+        </section>
+
+        <section id="contact">
+        </section>
+
+        <div class="portfolio-title">
+            Design & Verification <br> Engineer<br>
+            <div class="portfolio-title1" id="typewriter"></div>
+        </div>
+        <div class="video-wrapper">
+            <video autoplay muted loop>
+                <source src="intro.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="profile">
+            <a class="heading">About me</a> <br>
+            <> Turning imagination into interactive reality <>
+        </div>
+        <div class="about">
+            <div style="color: #d234eb;">Hello, I'm </div>Sri Charan Vasantha<br>
+            <p>I am an enthusiastic Electronics and Communication Engineering student at Aditya University, with a
+                strong focus on the
+                dynamic field of VLSI design. Deeply passionate about the intricacies of Verilog and ASIC development, I
+                am currently
+                honing my skills through intensive, hands-on training at TECHNICAL HUB.🌐
+
+                This immersive experience allows me to blend theoretical concepts with real-world applications, driving
+                my curiosity to
+                explore how technology can be engineered to shape a smarter, more efficient future. My involvement with
+                T-Hub provides
+                invaluable industry exposure, empowering me with the technical expertise and problem-solving mindset
+                essential for
+                success in today’s rapidly evolving tech landscape.</p>
+            <div class="matter-box">
+                <div class="resume-box">
+                    <a href="resume.pdf">Resume</a>
+                </div>
+                <div class="resume-box">
+                    <a href="https://vasanthasricharan.github.io/profile/">Profile</a>
+                </div>
+            </div>
+            <div class="image-container">
+                <img src="https://res.cloudinary.com/dkwhvzg8w/image/upload/v1740917122/MINNU_azvdnh.jpg"
+                    style="border-radius: 100%;">
+            </div>
+        </div>
+        <div class="details">
+            <div class="box">
+                <div class="number">3</div>
+                <div class="circle">
+                    〈〉
+                </div>
+                <div class="bottom-left-text">TOTAL PROJECTS <br> Innovative web solutions crafted</div>
+            </div>
+            <div class="box">
+                <div class="number">6</div>
+                <div class="circle"> ۞ </div>
+                <div class="bottom-left-text">CERTIFICATES <br> Professional skills validated</div>
+            </div>
+            <div class="box">
+                <div class="number">0</div>
+                <div class="circle">♛</div>
+                <div class="bottom-left-text">COMING SOON <>
+                </div>
+            </div>
+        </div>
+        <div class="showcase-title">Portfolio Showcase</div>
+        <div class="matter" style="color: white;">
+            Explore my journey through projects, certifications, and technical expertise.</div>
+        <div class="showcase-position">
+            <div class="box-row">
+                <div class="box-button active" onclick="showContent('projects', event)">Projects</div>
+                <div class="box-button" onclick="showContent('certificates', event)">Certificates</div>
+                <div class="box-button" onclick="showContent('techstack', event)">Tech Stack</div>
+            </div>
+            <div class="content-wrapper">
+                <div id="projects" class="content-box active">
+                    <h3>My Projects</h3>
+                    <div class="inner-item-grid">
+                        <div class="inner-item">
+                            <img src="gymassistantapp.png">
+                            <div class="project-font">
+                                <h4>GYM ASSISTANT APP</h4> <br>
+                                Gym Assist is a personal fitness app designed to help you plan, track, and achieve your
+                                workout goals. Built
+                                using
+                                HTML, CSS, and
+                                JavaScript.
+                            </div>
+                        </div>
+                        <div class="inner-item">
+                            <img src="weatherforecast.png">
+                            <div class="project-font">
+                                <h4>WEATHER FORECAST WEBSITE </h4><br>
+                                This Weather Forecast App provides accurate, real-time weather updates with hourly,
+                                daily,
+                                and
+                                weekly forecasts for any
+                                location.
+                            </div>
+                        </div>
+                        <div class="inner-item">
+                            <img src="image3.avif">
+                            <div class="project-font">
+                                <h4>E-COMMERCE WEBSITE </h4><br>
+                                This E-commerce App offers a seamless shopping experience with a wide range of products,
+                                secure
+                                payments, and fast
+                                delivery.
+                            </div>
+                        </div>
+                        <div class="inner-item">
+                            <img src="image3.avif">
+                            <div class="project-font">
+                                <h4>WEATHER FORECAST WEBSITE </h4><br>
+                                This Weather Forecast App provides accurate, real-time weather updates with hourly,
+                                daily,
+                                and
+                                weekly forecasts for any
+                                location.
+                            </div>
+                        </div>
+                        <div class="inner-item">
+                            <img src="image3.avif">
+                            <div class="project-font">
+                                <h4>CHAT APP USES WEBSOCKET</h4><br>
+                                This Chat App uses WebSocket technology to enable real-time, bidirectional messaging for
+                                seamless and instant
+                                communication.
+                            </div>
+                        </div>
+                        <div class="inner-item">
+                            <img src="image3.avif">
+                            <div class="project-font">
+                                <h4>TASK TRACKER APP </h4><br>
+                                This Task Tracker App helps users organize, manage, and track their daily tasks with
+                                reminders, priorities, and progress
+                                updates.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="certificates" class="content-box">
+                    <h3>Certificates</h3>
+                    <div class="inner-item-grid">
+                        <div class="certificate-item" onclick="showCertificate('semiconductor.jpg')">
+                            <img src="semiconductor.jpg" alt="Semiconductor Certificate">
+                        </div>
+                        <div class="certificate-item" onclick="showCertificate('behavioralmodeling.jpg')">
+                            <img src="behavioralmodeling.jpg" alt="behavioralmodeling Certificate">
+                        </div>
+                        <div class="certificate-item" onclick="showCertificate('digitalicdesgin.jpg')">
+                            <img src="digitalicdesgin.jpg" alt="digitalicdesgin Certificate">
+                        </div>
+                        <div class="certificate-item" onclick="showCertificate('fpga.jpg')">
+                            <img src="fpga.jpg" alt="fpga Certificate">
+                        </div>
+                        <div class="certificate-item" onclick="showCertificate('image3.avif')">
+                            <img src="image3.avif" alt="image3 Certificate">
+                        </div>
+                        <div class="certificate-item" onclick="showCertificate('image3.avif')">
+                            <img src="image3.avif" alt="image3 Certificate">
+                        </div>
+                    </div>
+                </div>
+                <div id="certificate-modal" class="modal">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <img class="modal-content" id="modal-image">
+                </div>
+
+                <div id="techstack" class="content-box">
+                    <h3>Tech Stack</h3>
+                    <div class="tech-grid">
+                        <div class="tech-card">
+                            <img src="html.svg" alt="HTML">
+                            <p>HTML</p>
+                        </div>
+                        <div class="tech-card">
+                            <img src="css.svg" alt="CSS">
+                            <p>CSS</p>
+                        </div>
+                        <div class="tech-card">
+                            <img src="javascript.svg" alt="JavaScript">
+                            <p>JavaScript</p>
+                        </div>
+                        <div class="tech-card">
+                            <img src="bootstrap.svg" alt="Bootstrap">
+                            <p>Bootstrap</p>
+                        </div>
+                        <div class="tech-card">
+                            <img src="vercel.svg" alt="Vercel">
+                            <p>Vercel</p>
+                        </div>
+                        <div class="tech-card">
+                            <img src="verilog.svg" alt="Vercel">
+                            <p>Verilog</p>
+                        </div>
+                        <div class="tech-card">
+                            <img src="systemverilog.svg" alt="Vercel">
+                            <p>Systemverilog</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="contact-title">CONTACT ME </div>
+        <div class="contact-matter">Got a question? Send me a message, and I'll get back to you soon.</div>
+        <div class="touch-box">
+            <div class="inner-touch-box">
+                <div id="contactSection">
+                    <div class="get-touch-title">Get in Touch</div>
+                    <div class="touch-matter">Have something to discuss? Send me a message and <br> let's talk.</div>
+
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder=" " style="color: white;" required />
+                            <label for="name">Full Name</label>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder=" " style="color: white;"
+                                required />
+                            <label for="email">Email</label>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea id="comment" name="comment" placeholder=" " style="color: white;"
+                                required></textarea>
+                            <label for="comment">Comment</label>
+                        </div>
+
+                        <button type="submit" style="color: white;">Submit</button>
+                    </form>
+
+
+                    <button id="showMessagesBtn" class="messagebtn">Show
+                        Messages</button>
+                </div>
+
+
+                <div id="messagesSection" style="display:none; color:white;">
+                    <div class="message">
+                        <h3>Messages</h3>
+                    </div>
+                    <ul id="messagesList" class="messagelist"></ul>
+                    <button id="backBtn" class="backbtn">Back</button>
+                </div>
+
+
+                <div class="inner-social-box">
+                    <div class="social-touch-title">SOCIAL MEDIA PLATFORM</div>
+                    <div class="social-touch-matter">Got something on your mind? Drop me a message <br> let’s chat!
+                    </div>
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com/in/sri-charan-vasantha-366928290/" target="_blank">
+                            <img
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrIbiofxGclX20CWBDtpmjOcbbuqEJS6PrSQ&s"></a><br>
+                        <a href="https://github.com/vasanthasricharan" target="_blank">
+                            <img src="git.jpeg"> </a><br>
+                        <a href="https://www.instagram.com/charan._.64/" target="_blank">
+                            <img
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHP2W0X8Bj9Wwou8Y5Iv2q_Aa-nME9SMwEAA&s"></a><br>
+                    </div>
+                </div>
+            </div>
+            <div class="thank-you-note"> THANK YOU FOR YOUR VISIT!!</div>
+        </div>
+
+        <script type="module" src="script.js"></script>
+</body>
+
+</html>
