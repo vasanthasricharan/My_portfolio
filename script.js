@@ -1,3 +1,13 @@
+// ================== Firebase Imports (must be at top for modules) ==================
+import { getFirestore, collection, addDoc, getDocs, serverTimestamp }
+    from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+
+// ================== Showcase State Tracking ==================
+let currentVisible = "projects";
+const sectionOrder = ["projects", "certificates", "techstack"];
+
 // ================== Portfolio Animations ==================
 setTimeout(() => {
     const welcome = document.getElementById("welcome-content");
@@ -60,46 +70,76 @@ function revealOnScroll() {
 }
 window.addEventListener('scroll', revealOnScroll);
 
-const sectionOrder = ['projects', 'certificates', 'techstack'];
-let currentVisible = 'projects';
+
+
+// ================== Showcase Sliding Tabs ==================
+
+// Track which content is visible
+// let currentVisible = "projects";
+// const sectionOrder = ["projects", "certificates", "techstack"];
+let isAnimating = false;
 
 function showContent(targetId, event) {
-    const buttons = document.querySelectorAll('.box-button');
-    buttons.forEach(btn => btn.classList.remove('active'));
-    event.target.classList.add('active');
+    if (isAnimating || targetId === currentVisible) return;
+
+    // update button state
+    document.querySelectorAll('.box-button').forEach(btn => btn.classList.remove('active'));
+    if (event?.target) event.target.classList.add('active');
 
     const current = document.getElementById(currentVisible);
     const next = document.getElementById(targetId);
-
-    if (targetId === currentVisible) {
-        current.classList.remove('slide-out-left', 'slide-out-right', 'slide-in-left', 'slide-in-right');
-        void current.offsetWidth;
-        current.classList.add('slide-out-left');
-        return;
-    }
-
     const isForward = sectionOrder.indexOf(targetId) > sectionOrder.indexOf(currentVisible);
 
-    current.classList.remove('slide-out-left', 'slide-out-right', 'slide-in-left', 'slide-in-right');
-    next.classList.remove('slide-out-left', 'slide-out-right', 'slide-in-left', 'slide-in-right', 'active');
+    // reset old animation classes
+    ['slide-out-left', 'slide-out-right', 'slide-in-left', 'slide-in-right']
+        .forEach(c => { current.classList.remove(c); next.classList.remove(c); });
 
-    void current.offsetWidth;
+    // prepare next content
+    next.classList.add('active');
+    next.style.pointerEvents = 'none';
+
+    // force reflow (ensures CSS animations trigger)
     void next.offsetWidth;
+    void current.offsetWidth;
 
+    // animate both
     current.classList.add(isForward ? 'slide-out-left' : 'slide-out-right');
-    current.classList.remove('active');
+    next.classList.add(isForward ? 'slide-in-right' : 'slide-in-left');
 
-    next.style.opacity = 0;
-    next.classList.add('active', isForward ? 'slide-in-right' : 'slide-in-left');
+    isAnimating = true;
 
+    // after current slides out → hide it
+    current.addEventListener('animationend', function handler() {
+        current.classList.remove('active', 'slide-out-left', 'slide-out-right');
+        current.removeEventListener('animationend', handler);
+    });
+
+    // after next slides in → cleanup
+    next.addEventListener('animationend', function handler() {
+        next.classList.remove('slide-in-right', 'slide-in-left');
+        next.style.pointerEvents = '';
+        next.removeEventListener('animationend', handler);
+        isAnimating = false;
+    });
+
+    // update visible state
     currentVisible = targetId;
 }
 
-// ================== Firestore Contact Form ==================
-import { getFirestore, collection, addDoc, getDocs, serverTimestamp }
-    from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+// ================== Attach to buttons ==================
+document.querySelectorAll('.box-button').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        const text = btn.textContent.trim().toLowerCase();
+        let targetId = "";
+        if (text.includes("project")) targetId = "projects";
+        else if (text.includes("certificate")) targetId = "certificates";
+        else if (text.includes("tech")) targetId = "techstack";
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+        if (targetId) showContent(targetId, e);
+    });
+});
+
+// ================== Firestore Contact Form ==================
 
 // 🔹 Your Firebase config (update storageBucket to .appspot.com)
 const firebaseConfig = {
