@@ -55,7 +55,7 @@
     bottom: 0;
     width: 0%;
     height: 2px;
-    background-color: black;
+    background-color: white;
     transition: width 0.3s ease;
 }
 
@@ -849,4 +849,5 @@ button {
     font-size: 30px;
     font-weight: bold;
     color: white;
+
 }
