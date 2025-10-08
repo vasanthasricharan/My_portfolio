@@ -19,7 +19,7 @@ setTimeout(() => {
     setTimeout(() => {
         portfolio.classList.add("visible");
     }, 50);
-}, 5000);
+}, 4500);
 
 const sentences = [
     "Electronics and Communication Student...",
@@ -238,3 +238,4 @@ document.querySelectorAll('.certificate-item img').forEach(img => {
     });
 });
 document.querySelector('.close').addEventListener('click', closeModal);
+
