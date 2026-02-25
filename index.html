@@ -9,298 +9,276 @@
 </head>
 
 <body>
-    <div class="welcome-content" id="welcome-content">
-        <div class="animated-content">
-            Welcome to my <br> Portfolio Website
-        </div>
+
+    <!-- WELCOME SCREEN -->
+    <div id="welcome-content">
+        <h1 class="welcome-text">Welcome to My Portfolio</h1>
+
     </div>
-    <div id="portfolio" style="display: none;">
-        <div class="navbar" id="navbar">
-            <a href="#home" class="nav-link">Home</a>
-            <a href="#about" class="nav-link">About</a>
-            <a href="#showcase" class="nav-link">Showcase</a>
-            <a href="#contact" class="nav-link">Contact</a>
-        </div>
 
-        <section id="home">
+    <div id="portfolio" class="portfolio-hidden">
+
+
+        <!-- NAVBAR -->
+        <header class="navbar">
+            <div class="logo">Vasantha Sri Charan</div>
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#showcase">Showcase</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
+
+        <!-- HOME -->
+        <section id="home" class="section home">
+            <div class="home-content">
+                <h1>Design & Verification Engineer</h1>
+                <p class="home-subtext">
+                    Passionate about VLSI Design & ASIC Development
+                </p>
+                <div class="home-buttons">
+                    <a href="#contact" class="btn">Hire Me</a>
+                    <a href="#showcase" class="btn-outline">View Work</a>
+                </div>
+                <br>
+                <h3 id="typewriter"></h3>
+            </div>
+
+            <div class="video-wrapper">
+                <video autoplay muted loop>
+                    <source src="intro.mp4" type="video/mp4">
+                </video>
+            </div>
         </section>
 
-        <section id="about">
+        <!-- ABOUT -->
+        <section id="about" class="section about">
+            <div class="about-text">
+                <h2>About Me</h2>
+                <h3 style="color:#d234eb;">Hello, I'm Sri Charan Vasantha</h3>
+
+                <p>
+                    I am an enthusiastic Electronics and Communication Engineering student at Aditya University, with a
+                    strong focus on the
+                    dynamic field of VLSI design. Deeply passionate about the intricacies of Verilog and ASIC
+                    development, I
+                    am currently
+                    honing my skills through intensive, hands-on training at TECHNICAL HUB.🌐 This immersive experience
+                    allows me to blend
+                    theoretical concepts with real-world applications, driving my curiosity to explore how technology
+                    can be
+                    engineered to
+                    shape a smarter, more efficient future. My involvement with T-Hub provides invaluable industry
+                    exposure,
+                    empowering me
+                    with the technical expertise and problem-solving mindset essential for success in today’s rapidly
+                    evolving tech
+                    landscape.
+                </p>
+
+                <div class="buttons">
+                    <a href="SriCharanVasantha_Resume.pdf" class="btn">Resume</a>
+                    <a href="https://vasanthasricharan.github.io/profile/" class="btn">Profile</a>
+                </div>
+            </div>
+
+            <div class="about-image">
+                <img src="23A91A0465.png">
+            </div>
         </section>
 
-        <section id="showcase">
+        <!-- STATS SECTION -->
+        <section class="stats-section">
+
+            <div class="stat-card">
+                <div class="stat-icon">⚙️</div>
+                <div class="stat-number">3</div>
+                <h4>TOTAL PROJECTS</h4>
+                <p>Innovative web solutions crafted</p>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">🎓</div>
+                <div class="stat-number">6</div>
+                <h4>CERTIFICATES</h4>
+                <p>Professional skills validated</p>
+            </div>
+
+            <div class="stat-card expandable" id="codingCard">
+                <div class="stat-header">
+                    <div class="stat-icon">👑</div>
+                    <div class="stat-number">0</div>
+                </div>
+
+                <h4>COMING SOON</h4>
+                <p>More achievements on the way</p>
+
+                <div class="coding-profiles">
+                    <a href="https://github.com/yourusername" target="_blank" class="profile-item">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg">
+                        <span>@yourusername</span>
+                    </a>
+
+                    <a href="https://leetcode.com/yourusername" target="_blank" class="profile-item">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/LeetCode_logo_black.png">
+                        <span>@yourusername</span>
+                    </a>
+                </div>
+            </div>
+
+
         </section>
 
-        <section id="contact">
-        </section>
 
-        <div class="portfolio-title">
-            Design & Verification <br> Engineer<br>
-            <div class="portfolio-title1" id="typewriter"></div>
-        </div>
-        <div class="video-wrapper">
-            <video autoplay muted loop>
-                <source src="intro.mp4" type="video/mp4">
-            </video>
-        </div>
-        <div class="profile">
-            <a class="heading">About me</a> <br>
-            <> Turning imagination into interactive reality <>
-        </div>
-        <div class="about">
-            <div style="color: #d234eb;">Hello, I'm </div>Sri Charan Vasantha<br>
-            <p>I am an enthusiastic Electronics and Communication Engineering student at Aditya University, with a
-                strong focus on the
-                dynamic field of VLSI design. Deeply passionate about the intricacies of Verilog and ASIC development, I
-                am currently
-                honing my skills through intensive, hands-on training at TECHNICAL HUB.🌐
-
-                This immersive experience allows me to blend theoretical concepts with real-world applications, driving
-                my curiosity to
-                explore how technology can be engineered to shape a smarter, more efficient future. My involvement with
-                T-Hub provides
-                invaluable industry exposure, empowering me with the technical expertise and problem-solving mindset
-                essential for
-                success in today’s rapidly evolving tech landscape.</p>
-            <div class="matter-box">
-                <div class="resume-box">
-                    <a href="resume.pdf">Resume</a>
-                </div>
-                <div class="resume-box">
-                    <a href="https://vasanthasricharan.github.io/profile/">Profile</a>
-                </div>
-            </div>
-            <div class="image-container">
-                <!-- <img src="https://res.cloudinary.com/dkwhvzg8w/image/upload/v1740917122/MINNU_azvdnh.jpg"
-                    style="border-radius: 100%;"> -->
-                <img src="23A91A0465.png" style="border-radius: 100%;">
-            </div>
-        </div>
-        <div class="details">
-            <div class="box">
-                <div class="number">3</div>
-                <div class="circle">
-                    〈〉
-                </div>
-                <div class="bottom-left-text">TOTAL PROJECTS <br> Innovative web solutions crafted</div>
-            </div>
-            <div class="box">
-                <div class="number">6</div>
-                <div class="circle"> ۞ </div>
-                <div class="bottom-left-text">CERTIFICATES <br> Professional skills validated</div>
-            </div>
-            <div class="box">
-                <div class="number">0</div>
-                <div class="circle">♛</div>
-                <div class="bottom-left-text">COMING SOON <>
-                </div>
-            </div>
-        </div>
-        <div class="showcase-title">Portfolio Showcase</div>
-        <div class="matter" style="color: white;">
-            Explore my journey through projects, certifications, and technical expertise.</div>
-        <div class="showcase-position">
-            <div class="box-row">
-                <div class="box-button active" onclick="showContent('projects', event)">Projects</div>
-                <div class="box-button" onclick="showContent('certificates', event)">Certificates</div>
-                <div class="box-button" onclick="showContent('techstack', event)">Tech Stack</div>
+        <!-- SHOWCASE -->
+        <section id="showcase" class="section showcase">
+            <h2>Portfolio Showcase</h2>
+            <div class="showcase-buttons">
+                <button class="box-button active">Projects</button>
+                <button class="box-button">Certificates</button>
+                <button class="box-button">Tech Stack</button>
             </div>
 
-            <div class="content-wrapper">
-                <div id="projects" class="content-box active">
-                    <h3>My Projects</h3>
-                    <div class="inner-item-grid">
-                        <div class="inner-item">
-                            <img src="gymassistantapp.png">
-                            <div class="project-font">
-                                <h4>GYM ASSISTANT APP</h4> <br>
-                                Gym Assist is a personal fitness app designed to help you plan, track, and achieve your
-                                workout goals. Built
-                                using
-                                HTML, CSS, and
-                                JavaScript.
-                            </div>
-                        </div>
-                        <div class="inner-item">
-                            <img src="weatherforecast.png">
-                            <div class="project-font">
-                                <h4>WEATHER FORECAST WEBSITE </h4><br>
-                                This Weather Forecast App provides accurate, real-time weather updates with hourly,
-                                daily,
-                                and
-                                weekly forecasts for any
-                                location.
-                            </div>
-                        </div>
-                        <div class="inner-item">
-                            <img src="image3.avif">
-                            <div class="project-font">
-                                <h4>E-COMMERCE WEBSITE </h4><br>
-                                This E-commerce App offers a seamless shopping experience with a wide range of products,
-                                secure
-                                payments, and fast
-                                delivery.
-                            </div>
-                        </div>
-                        <div class="inner-item">
-                            <img src="image3.avif">
-                            <div class="project-font">
-                                <h4>WEATHER FORECAST WEBSITE </h4><br>
-                                This Weather Forecast App provides accurate, real-time weather updates with hourly,
-                                daily,
-                                and
-                                weekly forecasts for any
-                                location.
-                            </div>
-                        </div>
-                        <div class="inner-item">
-                            <img src="image3.avif">
-                            <div class="project-font">
-                                <h4>CHAT APP USES WEBSOCKET</h4><br>
-                                This Chat App uses WebSocket technology to enable real-time, bidirectional messaging for
-                                seamless and instant
-                                communication.
-                            </div>
-                        </div>
-                        <div class="inner-item">
-                            <img src="image3.avif">
-                            <div class="project-font">
-                                <h4>TASK TRACKER APP </h4><br>
-                                This Task Tracker App helps users organize, manage, and track their daily tasks with
-                                reminders, priorities, and progress
-                                updates.
-                            </div>
-                        </div>
+            <!-- Projects Section -->
+            <div id="projects" class="content-section active">
+                <div class="grid">
+                    <div class="card">
+                        <img src="gymassistantapp.png">
+                        <h4>Gym Assistant App</h4>
+                        <p>Fitness app built using HTML, CSS & JS.</p>
                     </div>
-                </div>
 
-                <div id="certificates" class="content-box">
-                    <h3>Certificates</h3>
-                    <div class="inner-item-grid">
-                        <div class="certificate-item" onclick="showCertificate('semiconductor.jpg')">
-                            <img src="semiconductor.jpg" alt="Semiconductor Certificate">
-                        </div>
-                        <div class="certificate-item" onclick="showCertificate('behavioralmodeling.jpg')">
-                            <img src="behavioralmodeling.jpg" alt="behavioralmodeling Certificate">
-                        </div>
-                        <div class="certificate-item" onclick="showCertificate('digitalicdesgin.jpg')">
-                            <img src="digitalicdesgin.jpg" alt="digitalicdesgin Certificate">
-                        </div>
-                        <div class="certificate-item" onclick="showCertificate('fpga.jpg')">
-                            <img src="fpga.jpg" alt="fpga Certificate">
-                        </div>
-                        <div class="certificate-item" onclick="showCertificate('image3.avif')">
-                            <img src="systemverilog.jpg" alt="image3 Certificate">
-                        </div>
-                        <div class="certificate-item" onclick="showCertificate('image3.avif')">
-                            <img src="verilog.jpg" alt="image3 Certificate">
-                        </div>
+                    <div class="card">
+                        <img src="weatherforecast.png">
+                        <h4>Weather App</h4>
+                        <p>Real-time weather forecast application.</p>
                     </div>
-                </div>
-                <div id="certificate-modal" class="modal">
-                    <span class="close" onclick="closeModal()">&times;</span>
-                    <img class="modal-content" id="modal-image">
-                </div>
 
-                <div id="techstack" class="content-box">
-                    <h3>Tech Stack</h3>
-                    <div class="tech-grid">
-                        <div class="tech-card">
-                            <img src="html.svg" alt="HTML">
-                            <p>HTML</p>
-                        </div>
-                        <div class="tech-card">
-                            <img src="css.svg" alt="CSS">
-                            <p>CSS</p>
-                        </div>
-                        <div class="tech-card">
-                            <img src="javascript.svg" alt="JavaScript">
-                            <p>JavaScript</p>
-                        </div>
-                        <div class="tech-card">
-                            <img src="bootstrap.svg" alt="Bootstrap">
-                            <p>Bootstrap</p>
-                        </div>
-                        <div class="tech-card">
-                            <img src="vercel.svg" alt="Vercel">
-                            <p>Vercel</p>
-                        </div>
-                        <div class="tech-card">
-                            <img src="verilog.svg" alt="Vercel">
-                            <p>Verilog</p>
-                        </div>
-                        <div class="tech-card">
-                            <img src="systemverilog.svg" alt="Vercel">
-                            <p>Systemverilog</p>
-                        </div>
+                    <div class="card">
+                        <img src="image3.avif">
+                        <h4>E-Commerce Website</h4>
+                        <p>Online shopping platform.</p>
+                    </div>
+                    <div class="card">
+                        <img src="image3.avif">
+                        <h4>Chat App</h4>
+                        <p>Real-time messaging using WebSocket.</p>
+                    </div>
+
+                    <div class="card">
+                        <img src="image3.avif">
+                        <h4>Task Tracker</h4>
+                        <p>Organize and track daily tasks efficiently.</p>
+                    </div>
+
+                    <div class="card">
+                        <img src="image3.avif">
+                        <h4>Portfolio Website</h4>
+                        <p>Responsive personal portfolio design.</p>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="contact-title">CONTACT ME </div>
-        <div class="contact-matter">Got a question? Send me a message, and I'll get back to you soon.</div>
-        <div class="touch-box">
-            <div class="inner-touch-box">
-                <div id="contactSection">
-                    <div class="get-touch-title">Get in Touch</div>
-                    <div class="touch-matter">Have something to discuss? Send me a message and <br> let's talk.</div>
 
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder=" " style="color: white;" required />
-                            <label for="name">Full Name</label>
-                        </div>
+            <!-- Certificates Section -->
+            <div id="certificates" class="content-section">
+                <h3 style="color:#a855f7; margin-bottom: 20px;">Certificates</h3>
+                <div class="grid">
+                    <div class="card"><img src="fpga.jpg" alt="Certificate 1"></div>
+                    <div class="card"><img src="systemverilog.jpg" alt="Certificate 2"></div>
+                    <div class="card"><img src="behavioralmodeling.jpg" alt="Certificate 3"></div>
+                    <div class="card"><img src="verilog.jpg" alt="Certificate 4"></div>
+                    <div class="card"><img src="digitalicdesgin.jpg" alt="Certificate 5"></div>
+                    <div class="card"><img src="image3.avif" alt="Certificate 6"></div>
+                </div>
+            </div>
 
-                        <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder=" " style="color: white;"
-                                required />
-                            <label for="email">Email</label>
-                        </div>
+            <!-- Tech Stack Section -->
+            <div id="techstack" class="content-section">
+                <h3 style="color:#a855f7; margin-bottom: 20px;">Tech Stack</h3>
+                <div class="grid tech-grid">
+                    <div class="tech-card"><img src="html.svg" alt="HTML">
+                        <p>HTML</p>
+                    </div>
+                    <div class="tech-card"><img src="css.svg" alt="CSS">
+                        <p>CSS</p>
+                    </div>
+                    <div class="tech-card"><img src="javascript.svg" alt="JavaScript">
+                        <p>JavaScript</p>
+                    </div>
+                    <div class="tech-card"><img src="bootstrap.svg" alt="Bootstrap">
+                        <p>Bootstrap</p>
+                    </div>
+                    <div class="tech-card"><img src="vercel.svg" alt="Vercel">
+                        <p>Vercel</p>
+                    </div>
+                    <div class="tech-card"><img src="verilog.svg" alt="Verilog">
+                        <p>Verilog</p>
+                    </div>
+                    <div class="tech-card"><img src="systemverilog.svg" alt="SystemVerilog">
+                        <p>Systemverilog</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                        <div class="form-group">
-                            <textarea id="comment" name="comment" placeholder=" " style="color: white;"
-                                required></textarea>
-                            <label for="comment">Comment</label>
-                        </div>
 
-                        <button type="submit" style="color: white;">Submit</button>
+        <!-- CONTACT -->
+        <section id="contact" class="section contact">
+
+            <h2 class="contact-title">Contact Me</h2>
+
+            <div class="contact-wrapper">
+
+                <!-- LEFT BOX -->
+                <div class="contact-box">
+                    <h3>Get in Touch</h3>
+                    <p>
+                        Have something to discuss? Send me a message and
+                        let's talk.
+                    </p>
+
+                    <form id="contactForm" class="contact-form">
+                        <input type="text" id="name" placeholder="Full Name" required>
+                        <input type="email" id="email" placeholder="Email" required>
+                        <textarea id="comment" placeholder="Message" required></textarea>
+                        <button type="submit">Submit</button>
                     </form>
-
-
-                    <button id="showMessagesBtn" class="messagebtn"> Show
-                        Messages</button>
                 </div>
 
+                <!-- RIGHT BOX -->
+                <div class="contact-box">
+                    <h3>SOCIAL MEDIA PLATFORM</h3>
+                    <p>
+                        Got something on your mind? Drop me a message —
+                        let’s chat!
+                    </p>
 
-                <div id="messagesSection" style="display:none; color:white;">
-                    <div class="message">
-                        <h3>Messages</h3>
-                    </div>
-                    <ul id="messagesList" class="messagelist"></ul>
-                    <button id="backBtn" class="backbtn">Back</button>
-                </div>
-
-
-                <div class="inner-social-box">
-                    <div class="social-touch-title">SOCIAL MEDIA PLATFORM</div>
-                    <div class="social-touch-matter">Got something on your mind? Drop me a message <br> let’s chat!
-                    </div>
                     <div class="social-icons">
-                        <a href="https://www.linkedin.com/in/sri-charan-vasantha-366928290/" target="_blank">
-                            <img
-                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrIbiofxGclX20CWBDtpmjOcbbuqEJS6PrSQ&s"></a><br>
-                        <a href="https://github.com/vasanthasricharan" target="_blank">
-                            <img src="git.jpeg"> </a><br>
-                        <a href="https://www.instagram.com/charan._.64/" target="_blank">
-                            <img
-                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHP2W0X8Bj9Wwou8Y5Iv2q_Aa-nME9SMwEAA&s"></a><br>
-                    </div>
-                </div>
-            </div>
-            <div class="thank-you-note"> THANK YOU FOR YOUR VISIT!!</div>
-        </div>
 
-        <script type="module" src="script.js"></script>
+                        <a href="https://www.linkedin.com/" target="_blank" class="social-link">
+                            <span>🔗</span> LinkedIn
+                        </a>
+
+                        <a href="https://github.com/" target="_blank" class="social-link">
+                            <span>💻</span> GitHub
+                        </a>
+
+                        <a href="https://instagram.com/" target="_blank" class="social-link">
+                            <span>📸</span> Instagram
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+    </div>
+
+
+    <script type="module" src="script.js"></script>
 </body>
 
 </html>
