@@ -772,13 +772,15 @@ body {
 
     .video-wrapper {
         width: 100%;
-        margin-top: 30px;
+        position: relative;
+        margin-top: 20px;
     }
 
     .video-wrapper video {
         width: 100%;
-        max-width: 100%;
-        transform: scale(1.1);
+        height: 300px;
+        object-fit: cover;
+        transform: none;
     }
 
     .home-content {
