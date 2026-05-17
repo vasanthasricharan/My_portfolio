@@ -301,9 +301,7 @@ body {
     cursor: pointer;
 }
 
-/* .stat-card img {
-    width: 60px;
-} */
+
 
 
 .stat-card:hover {
@@ -435,18 +433,7 @@ body {
     }
 }
 
-.card {
-    background: #1e1e2f;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-}
 
-.card img {
-    width: 100%;
-    border-radius: 8px;
-    margin-bottom: 10px;
-}
 
 /* Showcase Buttons */
 .showcase-buttons {
@@ -596,8 +583,12 @@ body {
 
 .card img {
     width: 100%;
+    height: 160px;
+    /* Keeps all certificate image aspects locked evenly */
+    object-fit: cover;
+    /* Prevents stretching or distortion */
     border-radius: 8px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 /* ================= TECH STACK CARDS ================= */
@@ -638,6 +629,95 @@ body {
     transform: translateY(-5px);
     border-color: #a855f7;
     box-shadow: 0 8px 20px rgba(168, 85, 247, 0.4);
+}
+
+/* ================= EXPERIENCE TIMELINE ================= */
+.experience-section {
+    text-align: center;
+}
+
+.experience-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.timeline-wrapper {
+    position: relative;
+    max-width: 1050px;
+    /* Increased from 800px to expand the whole page content layout width */
+    margin: 0 auto;
+    padding-left: 30px;
+    text-align: left;
+    border-left: 2px solid rgba(168, 85, 247, 0.3);
+    /* Purple vertical line running down */
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: -41px;
+    top: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #a855f7;
+    border: 4px solid black;
+    box-shadow: 0 0 10px #a855f7;
+}
+
+.timeline-content-box {
+    background: #1e1e2f;
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.timeline-date {
+    color: #a855f7;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.timeline-content-box h4 {
+    font-size: 1.3rem;
+    margin: 5px 0 10px 0;
+}
+
+.timeline-content-box p {
+    color: #ccc;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.timeline-gallery {
+    margin-top: 15px;
+}
+
+.timeline-gallery img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+    border: 1px solid rgba(168, 85, 247, 0.2);
+}
+
+.experience-section .grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 2px !important;
+    max-width: 100% !important;
+    margin: 20px auto 0 auto !important;
+}
+
+.experience-section .card img {
+    width: 100% !important;
+    height: 240px !important;
+    object-fit: cover;
+    border-radius: 8px;
 }
 
 /* ================= CONTACT SECTION ================= */
@@ -919,9 +999,10 @@ body {
         margin: 10px auto 0 auto;
     }
 
-  .video-wrapper {
+    .video-wrapper {
         width: 100%;
-        max-width: 420px; /* Increased from 340px to make it larger */
+        max-width: 340px;
+        /* Keeps your video container perfectly proportioned */
         margin: 0 auto;
         border-radius: 16px;
         overflow: hidden;
@@ -1041,12 +1122,14 @@ body {
         margin-bottom: 10px;
     }
 
-   .about-image img {
-        width: 240px !important; /* Increased from 180px to stand out more */
-        height: 240px !important;
+    .about-image img {
+        width: 180px !important;
+        /* Scaled down perfectly for mobile screens */
+        height: 180px !important;
         object-fit: cover;
         border-radius: 50%;
         border: 2px solid #a855f7;
+        /* Matching violet border theme */
         box-shadow: 0 8px 25px rgba(168, 85, 247, 0.2);
     }
 
@@ -1198,6 +1281,37 @@ body {
     #showcase {
         position: relative;
         overflow: hidden;
+    }
+
+    /* Mobile Timeline Responsive Corrections */
+    .experience-section h2 {
+        font-size: 2rem !important;
+    }
+
+    .timeline-content-box h4 {
+        font-size: 1.1rem !important;
+    }
+
+    .timeline-gallery img {
+        max-width: 100%;
+        /* Spans gracefully on narrow mobile screen panels */
+    }
+
+    /* Keeps the timeline layout perfectly spacious on small mobile screens */
+    .timeline-wrapper {
+        padding-left: 20px !important;
+    }
+
+    .timeline-content-box {
+        padding: 15px !important;
+        /* Slightly smaller internal spacing for small screens */
+    }
+
+    .experience-section .card img {
+        height: auto !important;
+        max-height: 280px;
+        object-fit: cover;
+        border-radius: 8px;
     }
 
     .showcase-buttons {
