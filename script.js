@@ -4,7 +4,7 @@ import { getFirestore, collection, addDoc, serverTimestamp }
 
 // ================== Showcase State Tracking ==================
 let currentVisible = "projects";
-const sectionOrder = ["projects", "certificates", "techstack"];
+const sectionOrder = ["projects", "vlsiprojects", "certificates", "techstack"]; // Added vlsiprojects
 
 
 // ================== Welcome Animation ==================
@@ -196,7 +196,8 @@ document.querySelectorAll('.box-button').forEach(btn => {
         const text = btn.textContent.trim().toLowerCase();
         let targetId = "";
 
-        if (text.includes("project")) targetId = "projects";
+        if (text.includes("vlsi")) targetId = "vlsiprojects"; // Add this line
+        else if (text.includes("project")) targetId = "projects";
         else if (text.includes("certificate")) targetId = "certificates";
         else if (text.includes("tech")) targetId = "techstack";
 
