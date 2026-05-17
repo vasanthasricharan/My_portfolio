@@ -13,6 +13,7 @@ body {
 html,
 body {
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 /* ================= WELCOME SCREEN ================= */
@@ -76,7 +77,6 @@ body {
     top: 0;
     width: 100%;
     padding: 15px 10%;
-    background: rgba(0, 0, 0, 0.85);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -153,6 +153,25 @@ body {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+
+    opacity: 0;
+    transform: translateX(-150px);
+}
+
+.home-content h1.animate-home {
+    animation: slideFromLeft 1.2s ease forwards;
+}
+
+@keyframes slideFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-150px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .home-subtext {
@@ -201,6 +220,25 @@ body {
     /* add this */
 }
 
+.about-page-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    /* Keeps everything grouped together inside 1 screen view */
+    gap: 40px;
+    padding: 100px 10% 40px 10%;
+    background: black;
+}
+
+/* Row wrapper for your text and image */
+.about-main-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
 .about-text {
     flex: 1;
 }
@@ -237,13 +275,18 @@ body {
     display: flex;
     justify-content: center;
     gap: 40px;
-    padding: 0px 10%;
+    padding: 40px 10%;
+    /* This gives perfect spacing above and below the cards */
     background: black;
     cursor: pointer;
 }
 
-.stats-section {
-    margin-top: -90px;
+/* Row wrapper for your 3 stats boxes */
+.about-stats-content {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
 }
 
 .stat-card {
@@ -255,11 +298,12 @@ body {
     position: relative;
     text-align: left;
     transition: 0.3s ease;
+    cursor: pointer;
 }
 
-.stat-card>img {
+/* .stat-card img {
     width: 60px;
-}
+} */
 
 
 .stat-card:hover {
@@ -457,17 +501,16 @@ body {
 
 /* ================= CONTENT SECTIONS ================= */
 
+
 .content-section {
-    position: absolute;
+    display: none;
     width: 100%;
     opacity: 0;
-    pointer-events: none;
 }
 
 .content-section.active {
-    position: relative;
+    display: block;
     opacity: 1;
-    pointer-events: auto;
 }
 
 /* Slide In */
@@ -559,32 +602,42 @@ body {
 
 /* ================= TECH STACK CARDS ================= */
 .tech-grid {
-    justify-items: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 25px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 0;
 }
 
+
 .tech-card {
-    background: #2b2b3c;
-    padding: 15px;
+    background: #1e1e2f;
+    border: 1px solid #333;
+    padding: 20px 15px;
     border-radius: 12px;
     text-align: center;
-    width: 120px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .tech-card img {
-    width: 60px;
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
     margin-bottom: 8px;
 }
 
 .tech-card p {
-    font-size: 0.9rem;
-    color: #ccc;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: white;
 }
 
 .tech-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(168, 85, 247, 0.5);
+    border-color: #a855f7;
+    box-shadow: 0 8px 20px rgba(168, 85, 247, 0.4);
 }
 
 /* ================= CONTACT SECTION ================= */
