@@ -1002,18 +1002,79 @@ body {
         gap: 30px;
     }
 
+    .about-page-wrapper {
+        min-height: auto !important;
+        /* Lets content flow naturally without clipping screen cuts */
+        padding: 60px 6% 40px 6% !important;
+        gap: 35px !important;
+    }
+
+    /* Stacks text and image perfectly */
+    .about-main-content {
+        flex-direction: column-reverse !important;
+        /* Puts image on top, text underneath */
+        gap: 25px;
+        text-align: center;
+    }
+
     .about-text h2 {
-        font-size: 2rem;
+        font-size: 2rem !important;
+        margin-bottom: 10px;
+    }
+
+    .about-text h3 {
+        font-size: 1.3rem !important;
+        margin-bottom: 15px;
     }
 
     .about-text p {
-        font-size: 1rem;
-        line-height: 1.6;
+        font-size: 0.95rem !important;
+        line-height: 1.6 !important;
+        text-align: justify;
+        /* Makes paragraphs look clean and easy to read */
+        margin: 15px 0 !important;
+    }
+
+    .about-image {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 10px;
     }
 
     .about-image img {
-        width: 260px;
-        max-width: 90%;
+        width: 180px !important;
+        /* Scaled down perfectly for mobile screens */
+        height: 180px !important;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 2px solid #a855f7;
+        /* Matching violet border theme */
+        box-shadow: 0 8px 25px rgba(168, 85, 247, 0.2);
+    }
+
+    .about-text .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        margin-top: 20px;
+    }
+
+    .about-text .btn {
+        margin-right: 0 !important;
+        flex: 1;
+        max-width: 130px;
+        padding: 10px 0;
+        font-size: 0.9rem;
+        text-align: center;
+    }
+
+    /* ================= MOBILE STATS CARDS FIX ================= */
+    .about-stats-content {
+        flex-direction: column !important;
+        /* Changes horizontal cards layout into a neat vertical stack */
+        gap: 20px !important;
+        width: 100% !important;
     }
 
     .stats-section {
@@ -1024,38 +1085,57 @@ body {
     }
 
     .stat-card {
-        width: 75%;
-        max-width: 260px;
-        padding: 15px;
-        border-radius: 16px;
+        width: 100% !important;
+        max-width: none !important;
+        padding: 20px !important;
+        border-radius: 12px !important;
+        background: #0d0d15 !important;
+        /* Clean matching dark container background */
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    }
+
+    .stat-card:hover {
+        border-color: #a855f7 !important;
+        transform: translateY(-3px) !important;
     }
 
     .stat-icon {
-        margin: 0 auto 15px;
-    }
-
-    .stat-icon {
-        width: 45px;
-        height: 45px;
-        font-size: 22px;
+        width: 45px !important;
+        height: 45px !important;
+        font-size: 20px !important;
+        margin-bottom: 10px !important;
     }
 
     .stat-number {
-        font-size: 1.3rem;
+        position: absolute !important;
+        top: 20px !important;
+        right: 20px !important;
+        font-size: 1.4rem !important;
     }
 
     .stat-card h4 {
-        font-size: 0.85rem;
+        font-size: 0.9rem !important;
+        margin-top: 5px !important;
     }
 
     .stat-card p {
-        font-size: 0.8rem;
+        font-size: 0.8rem !important;
+        margin-top: 4px !important;
     }
 
-    .stat-number {
+    /* .stat-number {
         position: static;
         margin-top: 8px;
         font-size: 1.5rem;
+    } */
+
+    .expandable.active {
+        transform: none !important;
+        /* Prevents card bouncing or scaling weirdly out of container space */
+    }
+
+    .coding-profiles {
+        width: 100%;
     }
 
     .stat-card.clickable {
