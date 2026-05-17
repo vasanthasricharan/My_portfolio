@@ -919,10 +919,9 @@ body {
         margin: 10px auto 0 auto;
     }
 
-    .video-wrapper {
+  .video-wrapper {
         width: 100%;
-        max-width: 340px;
-        /* Keeps your video container perfectly proportioned */
+        max-width: 420px; /* Increased from 340px to make it larger */
         margin: 0 auto;
         border-radius: 16px;
         overflow: hidden;
@@ -1042,14 +1041,12 @@ body {
         margin-bottom: 10px;
     }
 
-    .about-image img {
-        width: 180px !important;
-        /* Scaled down perfectly for mobile screens */
-        height: 180px !important;
+   .about-image img {
+        width: 240px !important; /* Increased from 180px to stand out more */
+        height: 240px !important;
         object-fit: cover;
         border-radius: 50%;
         border: 2px solid #a855f7;
-        /* Matching violet border theme */
         box-shadow: 0 8px 25px rgba(168, 85, 247, 0.2);
     }
 
