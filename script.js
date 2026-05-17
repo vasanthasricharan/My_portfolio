@@ -261,13 +261,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const links = document.querySelectorAll("#navLinks a");
 
     if (hamburger && navLinks) {
-        // Toggle menu open/close when clicking the hamburger icon
-        hamburger.addEventListener("click", () => {
+        hamburger.addEventListener("click", (e) => {
+            e.stopPropagation();
             navLinks.classList.toggle("mobile-active");
-            hamburger.classList.toggle("toggle"); // Animates icon to an 'X'
+            hamburger.classList.toggle("toggle");
         });
 
-        // Close the menu automatically when a link is clicked
+        // Automatically close side drawer when clicking any nav anchor link
         links.forEach(link => {
             link.addEventListener("click", () => {
                 navLinks.classList.remove("mobile-active");
