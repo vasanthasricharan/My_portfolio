@@ -253,3 +253,26 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
+// ================== Mobile Hamburger Menu ==================
+document.addEventListener("DOMContentLoaded", () => {
+    const hamburger = document.getElementById("hamburgerMenu");
+    const navLinks = document.getElementById("navLinks");
+    const links = document.querySelectorAll("#navLinks a");
+
+    if (hamburger && navLinks) {
+        // Toggle menu open/close when clicking the hamburger icon
+        hamburger.addEventListener("click", () => {
+            navLinks.classList.toggle("mobile-active");
+            hamburger.classList.toggle("toggle"); // Animates icon to an 'X'
+        });
+
+        // Close the menu automatically when a link is clicked
+        links.forEach(link => {
+            link.addEventListener("click", () => {
+                navLinks.classList.remove("mobile-active");
+                hamburger.classList.remove("toggle");
+            });
+        });
+    }
+});
