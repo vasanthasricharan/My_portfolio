@@ -11,10 +11,22 @@ const sectionOrder = ["projects", "certificates", "techstack"];
 setTimeout(() => {
     const welcome = document.getElementById("welcome-content");
     const portfolio = document.getElementById("portfolio");
+    const homeTitle = document.querySelector(".home-content h1");
+    const introVideo = document.getElementById("introVideo");
 
     welcome.style.display = "none";
+
     portfolio.classList.remove("portfolio-hidden");
     portfolio.classList.add("portfolio-visible");
+
+    // text animation starts
+    homeTitle.classList.add("animate-home");
+
+    // restart video from beginning
+    introVideo.pause();
+    introVideo.currentTime = 0;
+    introVideo.play();
+
 }, 5000);
 
 // ================== Firebase Setup ==================
@@ -127,59 +139,56 @@ window.addEventListener('scroll', revealOnScroll);
 
 
 
-// ================== Showcase Sliding Tabs ==================
+// ================== Showcase Sliding Tabs (Fixed) ==================
 let isAnimating = false;
 
 function showContent(targetId, event) {
     if (isAnimating || targetId === currentVisible) return;
 
-    // update button state
+    // 1. Update button active states
     document.querySelectorAll('.box-button').forEach(btn => btn.classList.remove('active'));
     if (event?.target) event.target.classList.add('active');
 
     const current = document.getElementById(currentVisible);
     const next = document.getElementById(targetId);
+
     const isForward = sectionOrder.indexOf(targetId) > sectionOrder.indexOf(currentVisible);
 
-    // reset animation classes
-    ['slide-out-left', 'slide-out-right', 'slide-in-left', 'slide-in-right']
-        .forEach(c => {
-            current.classList.remove(c);
-            next.classList.remove(c);
-        });
+    // 2. Clear out any old animation classes
+    const animationClasses = ['slide-out-left', 'slide-out-right', 'slide-in-left', 'slide-in-right'];
+    animationClasses.forEach(c => {
+        current.classList.remove(c);
+        next.classList.remove(c);
+    });
 
-    // prepare next content
+    // 3. Make next active but keep it hidden initially to read layout properly
     next.classList.add('active');
-    next.style.pointerEvents = 'none';
 
-    // force reflow
+    // Force layout refresh
     void next.offsetWidth;
     void current.offsetWidth;
 
-    // animate
+    // 4. Apply custom sliding animations
     current.classList.add(isForward ? 'slide-out-left' : 'slide-out-right');
     next.classList.add(isForward ? 'slide-in-right' : 'slide-in-left');
 
     isAnimating = true;
 
-    // cleanup current
+    // 5. Clean up old section when it slides out
     current.addEventListener('animationend', function handler() {
         current.classList.remove('active', 'slide-out-left', 'slide-out-right');
         current.removeEventListener('animationend', handler);
     });
 
-    // cleanup next
+    // 6. Clean up new section when it slides in
     next.addEventListener('animationend', function handler() {
         next.classList.remove('slide-in-right', 'slide-in-left');
-        next.style.pointerEvents = '';
         next.removeEventListener('animationend', handler);
         isAnimating = false;
     });
 
     currentVisible = targetId;
 }
-
-
 
 // ================== Attach Showcase Buttons ==================
 document.querySelectorAll('.box-button').forEach(btn => {
