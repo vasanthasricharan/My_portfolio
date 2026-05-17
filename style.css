@@ -800,6 +800,71 @@ body {
         font-size: 0.85rem;
     }
 
+    /* --- Mobile Hamburger Styles --- */
+
+    /* 1. Reset navbar configuration for mobile layout */
+    .navbar {
+        flex-direction: row !important;
+        /* Keeps logo and hamburger on the same line */
+        justify-content: space-between !important;
+        padding: 15px 5% !important;
+    }
+
+    /* 2. Style the 3 lines of the hamburger menu */
+    .hamburger {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        z-index: 1001;
+        /* Keeps it above everything */
+    }
+
+    .hamburger span {
+        width: 25px;
+        height: 3px;
+        background-color: white;
+        border-radius: 2px;
+        transition: 0.3s ease;
+    }
+
+    /* 3. Turn the normal nav bar into a full-screen mobile menu dropdown */
+    .navbar nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        /* Hides it completely off-screen to the right */
+        width: 70%;
+        height: 100vh;
+        background: rgba(15, 15, 25, 0.95);
+        /* Sleek dark background */
+        backdrop-filter: blur(10px);
+        flex-direction: column !important;
+        justify-content: center;
+        gap: 30px !important;
+        transition: 0.4s ease;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+    }
+
+    /* 4. Class to slide the menu in when active */
+    .navbar nav.mobile-active {
+        right: 0;
+        /* Slides it into view */
+    }
+
+    /* 5. Optional: Animate the hamburger icon into an 'X' when clicked */
+    .hamburger.toggle span:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .hamburger.toggle span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.toggle span:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+
 
     .about {
         flex-direction: column;
@@ -820,35 +885,69 @@ body {
 
     .home {
         display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        /* pushes video to bottom */
+        flex-direction: column-reverse;
+        /* Places the video wrapper above the text wrapper */
+        justify-content: center;
+        align-items: center;
         min-height: 100vh;
-        padding: 0 4%;
+        padding: 80px 6% 20px 6%;
+        /* Adds space on top so it doesn't clip into the navbar */
+        gap: 30px;
+        /* Spacing between video and text */
     }
 
     .video-wrapper {
         width: 100%;
         display: flex;
         justify-content: center;
-        align-items: flex-end;
+        align-items: center;
     }
 
     .video-wrapper video {
-        width: 100%;
-        height: auto;
-        /* IMPORTANT: keeps full video visible */
-        max-height: 300px;
-        /* optional control */
+        width: 90%;
+        /* Scales nicely down on narrow screens */
+        max-height: 250px;
+        border-radius: 12px;
+        /* Smooth rounded corners for a modern look */
         object-fit: contain;
-        /* shows full video (no crop) */
         transform: none;
     }
 
     .home-content {
         width: 100%;
         text-align: center;
+        margin-top: 0px;
+    }
+
+    .home-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        /* Uses consistent spacing instead of margin-left rules */
         margin-top: 20px;
+    }
+
+    .btn-outline {
+        margin-left: 0px;
+        /* Clears out the desktop layout margin shift */
+    }
+
+    /* Clean text entry animation optimized for mobile screens */
+    .home-content h1.animate-home {
+        animation: slideFromBottomMobile 1.0s ease-out forwards;
+    }
+
+    @keyframes slideFromBottomMobile {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+            /* Smoothly slides UP from the bottom instead of the far left */
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     .home-content h1 {
