@@ -83,13 +83,13 @@ body {
     z-index: 1000;
 }
 
-/* Logo */
+
 .logo {
     font-size: 1.3rem;
     font-weight: bold;
 }
 
-/* Navigation container */
+
 .navbar nav {
     display: flex;
     align-items: center;
@@ -97,7 +97,6 @@ body {
     padding: 10px 0;
 }
 
-/* Navigation links */
 .navbar nav a {
     position: relative;
     padding: 15px;
@@ -108,7 +107,7 @@ body {
     transition: 0.3s ease;
 }
 
-/* Underline animation */
+
 .navbar nav a::after {
     content: "";
     position: absolute;
@@ -906,30 +905,28 @@ body {
         transition: 0.3s cubic-bezier(0.1, 1, 0.1, 1);
     }
 
-    /* 3. Turn the normal nav bar into a full-screen mobile menu dropdown */
     .navbar nav {
         position: fixed;
         top: 0;
-        right: -100%;
+        right: 0;
         width: 250px;
-        /* Slimmer, professional sidebar width */
         height: 100vh;
         background: #0d0d15;
-        /* Deep rich dark theme background */
         display: flex;
         flex-direction: column !important;
         justify-content: flex-start !important;
         align-items: flex-start !important;
         padding: 100px 30px !important;
         gap: 20px !important;
-        transition: transform 0.4s cubic-bezier(0.1, 1, 0.1, 1);
         box-shadow: -10px 0 30px rgba(0, 0, 0, 0.7);
         z-index: 1000;
+        transform: translateX(100%);
+
+        transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        will-change: transform;
     }
 
-    /* 4. Class to slide the menu in when active */
     .navbar nav.mobile-active {
-        right: 0;
         transform: translateX(0);
     }
 
@@ -947,7 +944,6 @@ body {
         color: #a855f7;
     }
 
-    /* Hamburger morph to 'X' */
     .hamburger.toggle span:nth-child(1) {
         transform: rotate(-45deg) translate(-5px, 6px);
         background-color: #a855f7;
@@ -982,7 +978,6 @@ body {
     .home {
         display: flex;
         flex-direction: column-reverse;
-        /* Keeps introduction visual neatly up top */
         justify-content: center;
         align-items: center;
         min-height: 100vh;
@@ -1002,7 +997,6 @@ body {
     .video-wrapper {
         width: 100%;
         max-width: 340px;
-        /* Keeps your video container perfectly proportioned */
         margin: 0 auto;
         border-radius: 16px;
         overflow: hidden;
@@ -1042,7 +1036,6 @@ body {
         border-radius: 8px;
     }
 
-    /* Clean text entry animation optimized for mobile screens */
     .home-content h1.animate-home {
         animation: slideFromBottomMobile 1.0s ease-out forwards;
     }
@@ -1051,7 +1044,6 @@ body {
         from {
             opacity: 0;
             transform: translateY(30px);
-            /* Smoothly slides UP from the bottom instead of the far left */
         }
 
         to {
@@ -1062,7 +1054,6 @@ body {
 
     .home-content h1 {
         font-size: 1.8rem !important;
-        /* Elegant size that doesn't split awkwardly */
         line-height: 1.3;
         font-weight: 700;
         margin-bottom: 12px;
@@ -1084,15 +1075,12 @@ body {
 
     .about-page-wrapper {
         min-height: auto !important;
-        /* Lets content flow naturally without clipping screen cuts */
         padding: 60px 6% 40px 6% !important;
         gap: 35px !important;
     }
 
-    /* Stacks text and image perfectly */
     .about-main-content {
         flex-direction: column-reverse !important;
-        /* Puts image on top, text underneath */
         gap: 25px;
         text-align: center;
     }
@@ -1111,7 +1099,6 @@ body {
         font-size: 0.95rem !important;
         line-height: 1.6 !important;
         text-align: justify;
-        /* Makes paragraphs look clean and easy to read */
         margin: 15px 0 !important;
     }
 
@@ -1124,12 +1111,10 @@ body {
 
     .about-image img {
         width: 180px !important;
-        /* Scaled down perfectly for mobile screens */
         height: 180px !important;
         object-fit: cover;
         border-radius: 50%;
         border: 2px solid #a855f7;
-        /* Matching violet border theme */
         box-shadow: 0 8px 25px rgba(168, 85, 247, 0.2);
     }
 
@@ -1149,10 +1134,8 @@ body {
         text-align: center;
     }
 
-    /* ================= MOBILE STATS CARDS FIX ================= */
     .about-stats-content {
         flex-direction: column !important;
-        /* Changes horizontal cards layout into a neat vertical stack */
         gap: 20px !important;
         width: 100% !important;
     }
@@ -1170,7 +1153,6 @@ body {
         padding: 20px !important;
         border-radius: 12px !important;
         background: #0d0d15 !important;
-        /* Clean matching dark container background */
         border: 1px solid rgba(255, 255, 255, 0.1) !important;
     }
 
@@ -1203,15 +1185,9 @@ body {
         margin-top: 4px !important;
     }
 
-    /* .stat-number {
-        position: static;
-        margin-top: 8px;
-        font-size: 1.5rem;
-    } */
 
     .expandable.active {
         transform: none !important;
-        /* Prevents card bouncing or scaling weirdly out of container space */
     }
 
     .coding-profiles {
@@ -1283,7 +1259,6 @@ body {
         overflow: hidden;
     }
 
-    /* Mobile Timeline Responsive Corrections */
     .experience-section h2 {
         font-size: 2rem !important;
     }
@@ -1294,24 +1269,26 @@ body {
 
     .timeline-gallery img {
         max-width: 100%;
-        /* Spans gracefully on narrow mobile screen panels */
     }
 
-    /* Keeps the timeline layout perfectly spacious on small mobile screens */
     .timeline-wrapper {
         padding-left: 20px !important;
     }
 
     .timeline-content-box {
         padding: 15px !important;
-        /* Slightly smaller internal spacing for small screens */
+    }
+
+    .experience-section .grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
     }
 
     .experience-section .card img {
+        width: 100% !important;
         height: auto !important;
-        max-height: 280px;
+        max-height: 260px !important;
         object-fit: cover;
-        border-radius: 8px;
     }
 
     .showcase-buttons {
