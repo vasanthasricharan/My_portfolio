@@ -280,7 +280,6 @@ body {
     cursor: pointer;
 }
 
-/* Row wrapper for your 3 stats boxes */
 .about-stats-content {
     display: flex;
     justify-content: center;
@@ -299,9 +298,6 @@ body {
     transition: 0.3s ease;
     cursor: pointer;
 }
-
-
-
 
 .stat-card:hover {
     transform: translateY(-6px);
@@ -341,7 +337,6 @@ body {
     margin-top: 5px;
 }
 
-/* Expandable Card */
 .expandable {
     cursor: pointer;
     transition: all 0.4s ease;
@@ -353,7 +348,6 @@ body {
     padding-bottom: 25px;
 }
 
-/* Hidden profiles */
 .coding-profiles {
     max-height: 0;
     overflow: hidden;
@@ -367,7 +361,7 @@ body {
     opacity: 1;
 }
 
-/* Profile item */
+
 .profile-item {
     display: flex;
     align-items: center;
@@ -486,7 +480,18 @@ body {
 }
 
 /* ================= CONTENT SECTIONS ================= */
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: transform 0.3s ease;
+}
 
+.card-link:hover .card {
+    transform: translateY(-5px);
+    border-color: #a855f7;
+    box-shadow: 0 8px 25px rgba(168, 85, 247, 0.4);
+}
 
 .content-section {
     display: none;
